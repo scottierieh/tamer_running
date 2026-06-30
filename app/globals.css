@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --flame: #ff4d00;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0a0a0a;
+  color: #f5f5f5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: #ff4d00;
+  color: #0a0a0a;
+}
+
+/* thin custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ff4d00;
+}
+
+@layer components {
+  .display {
+    font-family: var(--font-display), system-ui, sans-serif;
+    letter-spacing: -0.01em;
+    line-height: 0.9;
+  }
+
+  .outline-text {
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(245, 245, 245, 0.65);
+  }
+
+  .outline-flame {
+    color: transparent;
+    -webkit-text-stroke: 1.5px #ff4d00;
+  }
+
+  .btn-flame {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-flame px-7 py-3.5 text-sm font-bold uppercase tracking-wider text-ink transition-all duration-200 hover:bg-flame-light hover:scale-[1.03] active:scale-95;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/25 px-7 py-3.5 text-sm font-bold uppercase tracking-wider text-white transition-all duration-200 hover:border-flame hover:text-flame;
+  }
+}
+
+/* speed lines background helper */
+.speed-grid {
+  background-image: linear-gradient(
+    115deg,
+    transparent 0%,
+    transparent 48%,
+    rgba(255, 77, 0, 0.08) 50%,
+    transparent 52%,
+    transparent 100%
+  );
+  background-size: 38px 38px;
+}
